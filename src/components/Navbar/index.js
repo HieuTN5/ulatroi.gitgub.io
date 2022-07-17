@@ -1,6 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
+import { BellIcon, MenuIcon, XIcon, SearchIcon } from '@heroicons/react/outline';
 import { Fragment } from 'react';
 
 const navigation = [
@@ -47,7 +47,7 @@ export default function Example() {
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
-                    {navigation.map((item) => (
+                    {/* {navigation.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
@@ -61,7 +61,13 @@ export default function Example() {
                       >
                         {item.name}
                       </a>
-                    ))}
+                    ))} */}
+                    <div className="relative flex w-3/4 flex-wrap items-stretch ">
+                      <span className="z-10 h-full leading-snug font-normal absolute text-center text-slate-300 bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
+                        <SearchIcon />
+                      </span>
+                      <input type="text" placeholder="Placeholder" className="w-full px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border border-slate-300 outline-none focus:outline-none focus:ring pl-10"/>
+                    </div>
                   </div>
                 </div>
               </div>

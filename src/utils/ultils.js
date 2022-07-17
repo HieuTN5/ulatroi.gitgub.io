@@ -1,3 +1,5 @@
+import {IMAGE_TYPE, POST_FILE_TYPE} from './constants';
+
 function timeSince(timeStamp) {
   const now = new Date();
   const secondsPast = (now.getTime() - timeStamp) / 1000;
@@ -62,4 +64,16 @@ export function convertUnixTimeToRelative(unixTime) {
 
 export function getLinkYoutue(code) {
   return `https://www.youtube.com/watch?v=${code}`;
+}
+
+export function getPostTypeByFile(fileName) {
+  if(!fileName) return POST_FILE_TYPE.VIDEO
+  const split = fileName.split(".")
+  const ext = split[split.length - 1];
+  if (IMAGE_TYPE.includes(String(ext).toLowerCase())) {
+    return POST_FILE_TYPE.IMAGE
+  } else if ('mp3'.includes(String(ext).toLowerCase())) {
+    return POST_FILE_TYPE.AUDIO
+  }
+  return POST_FILE_TYPE.VIDEO
 }
